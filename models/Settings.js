@@ -17,7 +17,7 @@ const settingsSchema = new mongoose.Schema({
   metaKeywords: { type: String, default: 'real estate, homes, ambernath, thane, builders' },
   // Branding
   logoUrl: { type: String, default: '' },
-  footerText: { type: String, default: '© 2026 Khan Builders. All rights reserved.' },
+  footerText: { type: String, default: 'Made by Ahmed khan All rights reserved.' },
 }, {
   timestamps: true,
 });
