@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 // Enable CORS for frontend
 app.use(cors({
-    origin: process.env.FRONTEND_URL || (process.env.NODE_ENV === 'production' ? 'https://your-frontend-domain.vercel.app' : 'http://localhost:3000'),
+    origin: process.env.FRONTEND_URL || (process.env.NODE_ENV === 'production' ? 'https://khan-builders-five.vercel.app/' : 'http://localhost:3000'),
     credentials: true,
 }));
 
