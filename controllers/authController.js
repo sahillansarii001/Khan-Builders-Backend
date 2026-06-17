@@ -21,6 +21,17 @@ const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    // Check against .env admin credentials
+    if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+      generateToken(res, 'admin_env_id');
+      return res.json({
+        _id: 'admin_env_id',
+        name: 'Admin',
+        email: email,
+        role: 'admin',
+      });
+    }
+
     const user = await User.findOne({ email });
 
     if (user && (await user.matchPassword(password))) {
