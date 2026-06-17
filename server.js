@@ -18,8 +18,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Enable CORS for frontend
+const allowedOrigins = process.env.FRONTEND_URL 
+    ? process.env.FRONTEND_URL.split(',').map(url => url.trim().replace(/\/$/, ''))
+    : ['http://localhost:3000'];
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL || (process.env.NODE_ENV === 'production' ? 'https://khan-builders-five.vercel.app/' : 'http://localhost:3000'),
+    origin: allowedOrigins,
     credentials: true,
 }));
 
